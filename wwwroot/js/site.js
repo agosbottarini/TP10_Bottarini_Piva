@@ -1,4 +1,43 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function MostrarTemporadas(IdS)
+{
+    $.ajax(
+        {
+            type: 'POST',
+            dataType: 'JSON',
+            url: '/Home/ObtenerTemporadas',
+            data: {IdSerie: IdS},
+            success:
+                function (response)
+                {
+                    console.log(response);
+                   let texto= "";
+                   for(let item of response)
+                   {
+                        texto += (item.numeroTemporada + ". " + item.tituloTemporada + "<br>");
+                   }
+                   $("#Info").html(texto);  
+                }
+        });
+}
 
-// Write your JavaScript code.
+function MostrarActores(IdS)
+{
+    $.ajax(
+        {
+            type: 'POST',
+            dataType: 'JSON',
+            url: '/Home/ObtenerActores',
+            data: {IdSerie: IdS},
+            success:
+                function (response)
+                {
+                    console.log(response);
+                    let texto ="";
+                    for(let item of response)
+                    {
+                        texto += (item.nombre + "<br>")
+                    }
+                    $("#Info").html(texto);
+                }
+        });
+}

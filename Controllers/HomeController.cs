@@ -15,7 +15,24 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewBag.Series = BD.ObtenerSeries();    
+
         return View();
+    }
+
+
+    public List<Actores> ObtenerActores(int idSerie)
+    {
+        List<Actores> ListaActores = BD.ObtenerActores(idSerie);
+
+        return ListaActores;
+    }
+
+    public List<Temporadas> ObtenerTemporadas(int idSerie)
+    {
+        List<Temporadas> ListaTemporadas = BD.ObtenerTemporadas(idSerie);
+
+        return ListaTemporadas;
     }
 
     public IActionResult Privacy()
@@ -28,4 +45,7 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+
+
 }

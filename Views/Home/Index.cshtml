@@ -1,51 +1,37 @@
-﻿<div class="card mb-3" style="margin-top: 5vw;">
-  <img src="..." class="card-img-top" alt="...">
+﻿@foreach(Series _Series in ViewBag.Series)
+{
+  <div class="card mb-3" style="width: 21rem;" >
+  <img src="@_Series.ImagenSerie" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">@_Series.Nombre</h5>
+    <p class="card-text"></p>
         <div>
-            <a href="#" class="btn btn-secondary">Temporadas</a>
-            <a href="#" class="btn btn-success">Actores</a>
-            <a href="#" class="btn btn-danger">Info Serie</a>
+          <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalSeries" onclick="MostrarTemporadas(@_Series.IdSerie)">Temporadas</button>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalSeries" onclick="MostrarActores(@_Series.IdSerie)">Actores</button>
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalSeries" onclick="MostrarInfoSeries(@_Series.IdSerie)">Info Series</button>
         </div>
   </div>
 </div>
 
-<div class="card mb-3">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <div>
-            <a href="#" class="btn btn-secondary">Temporadas</a>
-            <a href="#" class="btn btn-success">Actores</a>
-            <a href="#" class="btn btn-danger">Info Serie</a>
-        </div>
+}
+
+<div class="modal fade" id="modalSeries" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body" id="Serie">
+        <p id="Info"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="card mb-3">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <div>
-            <a href="#" class="btn btn-secondary">Temporadas</a>
-            <a href="#" class="btn btn-success">Actores</a>
-            <a href="#" class="btn btn-danger">Info Serie</a>
-        </div>
-  </div>
-</div>
 
-<div class="card mb-3">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <div>
-            <a href="#" class="btn btn-secondary">Temporadas</a>
-            <a href="#" class="btn btn-success">Actores</a>
-            <a href="#" class="btn btn-danger">Info Serie</a>
-        </div>
-  </div>
-</div>
+
