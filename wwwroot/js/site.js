@@ -41,3 +41,20 @@ function MostrarActores(IdS)
                 }
         });
 }
+
+function MostrarInfoSeries(IdS)
+{
+    $.ajax(
+        {
+            type:'POST',
+            dataType:'JSON',
+            url:'/Home/ObtenerInfoSeries',
+            data: {IdSerie: IdS},
+            success:
+                function(response)
+                {
+                    console.log(response);
+                    $("#Info").html(response.sinopsis);
+                }
+        });
+}

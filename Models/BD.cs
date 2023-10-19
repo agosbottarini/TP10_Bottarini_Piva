@@ -17,14 +17,15 @@ public static class BD
         return ListaActores;
     }
 
-    public static string ObtenerInfoSeries(int idSerie)
+    public static Series ObtenerInfoSeries(int idSerie)
     {
-        string info;
+        Series info = null;
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sql = "SELECT Sinopsis FROM Series WHERE idSerie = @pIdSerie";
-            info = db.Query<Series>(sql, new {pIdSerie = idSerie});
+            info = db.QueryFirstOrDefault<Series>(sql, new {pIdSerie = idSerie}); 
         }
+        return info;
     }
 
     public static List<Series> ObtenerSeries()

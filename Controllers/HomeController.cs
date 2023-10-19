@@ -35,6 +35,13 @@ public class HomeController : Controller
         return ListaTemporadas;
     }
 
+    public Series ObtenerInfoSeries(int idSerie)
+    {
+        Series InfoSeries = BD.ObtenerInfoSeries(idSerie);
+
+        return InfoSeries;
+    } 
+
     public IActionResult Privacy()
     {
         return View();
